@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<HBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="menuBar.DefaultMenuBarController">
+	<children>
+		<MenuBar fx:id="menuBar" onMouseEntered="#initialize" prefWidth="1280.0" HBox.hgrow="ALWAYS">
+			<menus>
+				<Menu mnemonicParsing="false" text="File">
+					<items>
+						<MenuItem fx:id="fileNewGame" mnemonicParsing="false" onAction="#initialize" text="New Game" />
+						<MenuItem fx:id="fileGameLobby" mnemonicParsing="false" onAction="#initialize" text="Game Lobby" />
+						<MenuItem fx:id="fileSearchGames" mnemonicParsing="false" onAction="#initialize" text="Search Games" />
+                  <MenuItem fx:id="fileLeaderboard" mnemonicParsing="false" onAction="#initialize" text="Leaderboard" />
+						<MenuItem fx:id="fileLogOut" mnemonicParsing="false" onAction="#initialize" text="Log Out" />
+						<MenuItem fx:id="fileExit" mnemonicParsing="false" onAction="#initialize" text="Exit" />
+					</items>
+				</Menu>
+				<Menu mnemonicParsing="false" text="Edit">
+					<items>
+						<MenuItem fx:id="editProfile" mnemonicParsing="false" onAction="#initialize" text="Profile" />
+					</items>
+				</Menu>
+				<Menu mnemonicParsing="false" text="Help">
+					<items>
+						<MenuItem fx:id="helpGameRules" mnemonicParsing="false" text="Game Rules" />
+					</items>
+				</Menu>
+				<Menu fx:id="administratorMenu" mnemonicParsing="false" onAction="#initialize" text="Administrator">
+					<items>
+						<MenuItem fx:id="adminUserListing" mnemonicParsing="false" text="User Listing" />
+					</items>
+				</Menu>
+            <Menu fx:id="moderatorMenu" mnemonicParsing="false" text="Moderator">
+              <items>
+                <MenuItem fx:id="moderatorChatReports" mnemonicParsing="false" text="Chat Reports" />
+              </items>
+            </Menu>
+			</menus>
+		</MenuBar>
+	</children>
+</HBox>

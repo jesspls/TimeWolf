@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gameLobby.GameLobbyScreenController">
+	<children>
+		<fx:include source="../menuBar/DefaultMenuBar.fxml" />
+		<Label layoutY="25.0" text="Lobby Listing:" AnchorPane.topAnchor="35.0">
+			<font>
+				<Font name="System Bold" size="18.0" />
+			</font>
+			<padding>
+				<Insets left="5.0" />
+			</padding>
+		</Label>
+		<TableView fx:id="gamesTable" layoutX="8.0" layoutY="66.0" prefHeight="606.0" prefWidth="858.0">
+			<columns>
+				<TableColumn fx:id="nameColumn" prefWidth="516.0" text="Name" />
+				<TableColumn fx:id="numPlayersColumn" minWidth="4.0" prefWidth="181.0" text="No. Players" />
+				<TableColumn fx:id="chatColumn" prefWidth="159.0" text="Chat" />
+			</columns>
+		</TableView>
+		<Button fx:id="joinButton" layoutX="827.0" layoutY="681.0" mnemonicParsing="false" onAction="#initialize" text="Join" AnchorPane.leftAnchor="820.0" />
+		<Button fx:id="createButton" layoutX="546.0" layoutY="681.0" mnemonicParsing="false" onAction="#initialize" text="Create" AnchorPane.leftAnchor="550.0" />
+		<Button fx:id="searchButton" layoutX="616.0" layoutY="681.0" mnemonicParsing="false" onAction="#initialize" text="Search" AnchorPane.rightAnchor="595.0" />
+		<Button fx:id="reloadTableButton" layoutX="709.0" layoutY="681.0" mnemonicParsing="false" onAction="#initialize" text="Refresh Listings" AnchorPane.leftAnchor="690.0" />
+      <TextArea fx:id="chatBoxTextArea" editable="false" layoutX="877.0" layoutY="38.0" prefHeight="470.0" prefWidth="399.0" wrapText="true" />
+      <TextArea fx:id="chatMessageTextArea" layoutX="877.0" layoutY="520.0" prefHeight="146.0" prefWidth="399.0" wrapText="true" />
+      <Button layoutX="1166.0" layoutY="681.0" mnemonicParsing="false" onAction="#sendMessage" text="Send Message" AnchorPane.leftAnchor="1160.0" />
+     
+      <Button fx:id="searchUsersButton" layoutX="209.0" layoutY="681.0" mnemonicParsing="false" text="Search Users" />
+      <TextField fx:id="searchUsersTextField" layoutX="8.0" layoutY="681.0" prefHeight="31.0" prefWidth="193.0" />
+      <Label fx:id="userNotFoundLabel" layoutX="325.0" layoutY="686.0" text="User couldn't be found" textFill="RED" />
+      <Button fx:id="reportButton" layoutX="1084.0" layoutY="680.0" mnemonicParsing="false" text="Report" />
+      <Label fx:id="reportLabel" layoutX="877.0" layoutY="686.0" textFill="RED" />
+	</children>
+</AnchorPane>

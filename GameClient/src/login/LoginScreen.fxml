@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0"
+	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="login.LoginScreenController">
+	<children>
+		<Button fx:id="loginButton" layoutX="545.0" layoutY="434.0"
+			mnemonicParsing="false" onAction="#initialize" text="Login" />
+		<Button fx:id="registerButton" layoutX="685.0" layoutY="434.0"
+			mnemonicParsing="false" onAction="#initialize" text="Register" />
+		<Hyperlink fx:id="forgotUsernamePasswordHyperlink" layoutX="545.0"
+			layoutY="476.0" onAction="#initialize" text="Forgot UserID/Password?"
+			AnchorPane.leftAnchor="545.0" />
+		<TextField fx:id="usernameTextField" layoutX="566.0"
+			layoutY="287.0" onAction="#initialize" />
+		<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Time Wolf"
+			AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="50.0">
+			<font>
+				<Font name="System Bold" size="96.0" />
+			</font>
+		</Text>
+		<Text layoutX="566.0" layoutY="281.0" strokeType="OUTSIDE"
+			strokeWidth="0.0" text="Username:">
+			<font>
+				<Font size="18.0" />
+			</font>
+		</Text>
+		<Text layoutX="568.0" layoutY="364.0" strokeType="OUTSIDE"
+			strokeWidth="0.0" text="Password:">
+			<font>
+				<Font size="18.0" />
+			</font>
+		</Text>
+		<PasswordField fx:id="passwordField" layoutX="566.0"
+			layoutY="369.0" />
+		<Label fx:id="errorMessage" alignment="CENTER" prefHeight="21.0"
+			prefWidth="400.0" textFill="RED" AnchorPane.leftAnchor="440.0"
+			AnchorPane.topAnchor="540.0">
+			<font>
+				<Font size="14.0" />
+			</font>
+		</Label>
+	</children>
+</AnchorPane>

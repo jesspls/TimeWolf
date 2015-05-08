@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="afterGame.AfterGameScreenController">
+   <children>
+      <fx:include source="../menuBar/DefaultMenuBar.fxml" />
+      <GridPane layoutX="45.0" layoutY="172.0" prefHeight="325.0" prefWidth="1195.0" AnchorPane.leftAnchor="45.0" AnchorPane.topAnchor="50.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="341.33331298828125" minWidth="10.0" prefWidth="89.33333587646484" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="601.3333435058594" minWidth="0.0" prefWidth="184.66665649414062" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="601.3333435058594" minWidth="10.0" prefWidth="119.33334350585938" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="601.3333435058594" minWidth="10.0" prefWidth="383.33331298828125" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="601.3333435058594" minWidth="10.0" prefWidth="176.66668701171875" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="601.3333435058594" minWidth="10.0" prefWidth="237.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="57.66667175292969" minHeight="10.0" prefHeight="53.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="110.66667175292969" minHeight="0.0" prefHeight="62.666656494140625" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="116.66665649414062" minHeight="0.0" prefHeight="63.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="151.0" minHeight="7.0" prefHeight="68.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="137.0" minHeight="10.0" prefHeight="67.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="123.66665649414062" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Rank">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="rankPlayerOne" GridPane.rowIndex="1">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="rankPlayerTwo" GridPane.rowIndex="2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="rankPlayerThree" GridPane.rowIndex="3">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="rankPlayerFour" GridPane.rowIndex="4">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label text="Player" GridPane.columnIndex="1">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="namePlayerOne" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="namePlayerTwo" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="namePlayerThree" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="namePlayerFour" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label text="VPs" GridPane.columnIndex="2">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="vpPlayerOne" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="vpPlayerTwo" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="vpPlayerThree" GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="vpPlayerFour" GridPane.columnIndex="2" GridPane.rowIndex="4">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label text="Num Cards In Deck" GridPane.columnIndex="3">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="deckPlayerOne" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="deckPlayerTwo" GridPane.columnIndex="3" GridPane.rowIndex="2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="deckPlayerThree" GridPane.columnIndex="3" GridPane.rowIndex="3">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="deckPlayerFour" GridPane.columnIndex="3" GridPane.rowIndex="4">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label text="Rate Your Opponents" textOverrun="CLIP" GridPane.columnIndex="4" GridPane.columnSpan="2">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Button fx:id="likePlayerOne" mnemonicParsing="false" prefHeight="31.0" prefWidth="113.0" text="Like" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <Button fx:id="likePlayerTwo" mnemonicParsing="false" prefHeight="31.0" prefWidth="113.0" text="Like" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <Button fx:id="likePlayerThree" mnemonicParsing="false" prefHeight="31.0" prefWidth="113.0" text="Like" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <Button fx:id="likePlayerFour" mnemonicParsing="false" prefHeight="31.0" prefWidth="113.0" text="Like" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <Button fx:id="dislikePlayerOne" mnemonicParsing="false" prefHeight="31.0" prefWidth="113.0" text="Dislike" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <Button fx:id="dislikePlayerTwo" mnemonicParsing="false" prefHeight="31.0" prefWidth="113.0" text="Dislike" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+            <Button fx:id="dislikePlayerThree" mnemonicParsing="false" prefHeight="31.0" prefWidth="113.0" text="Dislike" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+            <Button fx:id="dislikePlayerFour" mnemonicParsing="false" prefHeight="31.0" prefWidth="113.0" text="Dislike" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+         </children>
+      </GridPane>
+      <GridPane layoutX="735.0" layoutY="422.0" prefHeight="228.0" prefWidth="493.0" AnchorPane.leftAnchor="735.0" AnchorPane.topAnchor="430.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <CheckBox fx:id="reasonOne" mnemonicParsing="false" text="Offensive Language">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="reasonTwo" mnemonicParsing="false" text="Verbal Abuse" GridPane.rowIndex="1">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="reasonThree" mnemonicParsing="false" text="Unskilled Player" GridPane.rowIndex="2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="reasonFour" mnemonicParsing="false" text="Other" GridPane.rowIndex="3">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </CheckBox>
+         </children>
+      </GridPane>
+      <Label fx:id="feedbackLabel" layoutX="767.0" layoutY="395.0" text="Please select the reason for your rating below" AnchorPane.leftAnchor="735.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="submit" layoutX="1137.0" layoutY="656.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="85.0" text="Submit">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <TextArea fx:id="chatBoxTextArea" editable="false" layoutX="45.0" layoutY="395.0" prefHeight="259.0" prefWidth="604.0" wrapText="true" />
+      <TextField fx:id="chatMessageTextField" layoutX="45.0" layoutY="676.0" onAction="#initialize" prefHeight="25.0" prefWidth="427.0" />
+      <Button fx:id="sendMessageButton" layoutX="486.0" layoutY="676.0" mnemonicParsing="false" onAction="#sendMessage" text="Send Message" />
+      <Button fx:id="reportButton" layoutX="597.0" layoutY="676.0" mnemonicParsing="false" onAction="#initialize" text="Report" />
+   </children>
+</AnchorPane>

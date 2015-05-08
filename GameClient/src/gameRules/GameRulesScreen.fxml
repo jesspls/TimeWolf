@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gameRules.GameRulesScreenController">
+	<children>
+		<fx:include source="../menuBar/DefaultMenuBar.fxml" />
+		<Label layoutX="25.0" layoutY="35.0" text="Game Rules (How To Play):" AnchorPane.topAnchor="40.0">
+			<font>
+				<Font name="System Bold" size="24.0" />
+			</font>
+		</Label>
+		<TextArea editable="false" layoutX="65.0" layoutY="80.0" prefHeight="600.0" prefWidth="1150.0" text="Background&#10;For inexplicable reasons – you are a wolf who has been sent back in time!  In a maddened rage, you attack a nearby civilian and are thrown into yet another century.  Seeing this, you realize your time travelling powers must rely on disrupting the space time continuum – this could be your chance to get home!  While experimenting with mauling other figures throughout time, you realize that the more influential an individual was the farther you are sent through time.  You also notice other wolf attacks in the same centuries as you and wonder if you are really alone in your plight…&#10;&#10;Gameplay&#10;Winning Condition&#10;Defeat the most valuable historical figures to get home before the other time wolves! Be the first to travel 2,000 years in time to win the game.&#10;&#10;Historical Figures&#10;Historical figures are worth a number of years in victory points.  Figures with more impact or influence on history will grant you more years, but be aware – they will also be significantly harder to defeat!&#10;&#10;Types of Cards&#10;•&#9;Attack cards : Used to boost your attack against enemies&#10;•&#9;Stealth cards : Used to steal action cards&#10;•&#9;Action cards : Have miscellaneous properties that will work to enhance the player’s action or disadvantage other players&#10;&#10;Turn Style&#10;When it's your turn, play as many cards from your hand as you'd like - but be careful!  Playing cards in a certain order might allow you to gain more Attack or Stealth and defeat more powerful historical figures than if you played your cards randomly!  When you have played all your cards or wish to not play any more, choose to end your turn by pushing the &quot;End Turn&quot; button.  Be aware - all cards not played during your turn will be discarded and a new hand will drawn for your next turn.&#10;" wrapText="true">
+         <font>
+            <Font size="16.0" />
+         </font></TextArea>
+	</children>
+</AnchorPane>
