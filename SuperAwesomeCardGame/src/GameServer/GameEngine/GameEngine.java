@@ -100,6 +100,8 @@ public class GameEngine extends UnicastRemoteObject implements Runnable, GameEng
 		
 		//Tell the game client how to talk to me
 		try {
+			if(p==null)
+				System.out.println("OMG P IS NULL");
 			p.setGameEngine(this.rmiRegistryName);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
@@ -237,7 +239,10 @@ public class GameEngine extends UnicastRemoteObject implements Runnable, GameEng
 		
 		this.ruleAttack(p, c);
 		this.ruleStealth(p, c);
-		this.ruleExtraTurn(p, c);
+		this.ruleDrawCards(p, c);
+		this.ruleLoseVP(p, c);
+		//this.ruleTakeAnotherTurn(p, c);
+		//this.ruleDiscard(p, c, false, a);
 		
 		this.ruleDrawCards(p, c);
 		this.ruleLoseVP(p, c);
@@ -427,6 +432,11 @@ public class GameEngine extends UnicastRemoteObject implements Runnable, GameEng
 		//If there aren't enough cards left for a full discard.
 		if(numOfCards > current.getHand().size()) {
 			numOfCards = current.getHand().size();
+		}
+		
+		//If there aren't enough cards left for a full discard.
+		if(numOfCards > current.getHand().size()) {
+			numOfCards =  current.getHand().size();
 		}
 		
 		if(numOfCards > 0) {

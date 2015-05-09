@@ -58,55 +58,31 @@ public class User implements Serializable {
       //this.Feedback = new ArrayList<Feedback>();
    }
    
-   /**
-    * returns the flag for the users account in relation to the moderator reports
-    * @return true if the user has been flagged by a moderator
-    */
    public boolean isFlagged()
    {
 	   return isFlagged;
    }
    
-   /**
-    * Sets the flag to the given param
-    * @param raised - true if a  mod flagged the user, false if the flag has been resolved
-    */
    public void setFlag(boolean raised)
    {
 	   isFlagged = raised;
    }
    
-   /**
-    * Returns level of security (on or off)
-    * @return true if user wants info hidden, false if user wants info displayed
-    */
    public boolean isParanoid()
    {
 	   return paranoia;
    }
    
-   /**
-    * Sets level of security
-    * @param isParanoid - if true, personal info hidden, else displayed
-    */
    public void setParanoid(boolean isParanoid)
    {
 	   paranoia = isParanoid;
    }
    
-   /**
-    * Returns the location of the user
-    * @return location
-    */
    public String getLocation()
    {
 	   return location;
    }
    
-   /**
-    * Sets the users location
-    * @param loc - location of user
-    */
    public void setLocation(String loc)
    {
 	   location = loc;
@@ -157,19 +133,11 @@ public class User implements Serializable {
       this.email = email;
    }
    
-   /**
-    * Sets the byte array of the image
-    * @param bs - byte array of the image belonging to the user
-    */
    public void setImageBytes(byte[] bs)
    {
 	   this.imageBytes = bs;
    }
    
-   /**
-    * Returns the byte array of the user's image
-    * @return byte array of the user's image
-    */
    public byte[] getImageBytes()
    {
 	   return imageBytes;

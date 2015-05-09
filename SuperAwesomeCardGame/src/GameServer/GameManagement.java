@@ -1,5 +1,7 @@
 package GameServer;
+import java.net.InetAddress;
 import java.net.MalformedURLException;
+import java.net.UnknownHostException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.Remote;
@@ -136,7 +138,8 @@ public class GameManagement extends UnicastRemoteObject implements Runnable, IGa
 			ge = new GameEngine(numberOfPlayers, gameName, this.startingDeck, this.mainDeck, gameID);
 			ge.setChatEnabled(chatEnabled);
 			
-			String path = "//localhost/GameEngine-" + this.gameID;
+			String path = "";
+			path = "//10.25.68.24" + "/GameEngine-" + this.gameID;
 			ge.setRmiRegistryName(path);
 			Naming.rebind(path, (GameEngineRemote) ge);
 			
@@ -174,6 +177,8 @@ public class GameManagement extends UnicastRemoteObject implements Runnable, IGa
 			return false;
 		}
 		
+		if(ge==null)
+			System.out.println("OMG GE IS NULL");
 		
 		ge.addPlayer(u, clientRegistryName);
 		

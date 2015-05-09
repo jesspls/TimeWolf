@@ -36,8 +36,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 public class GameLobbyScreenController implements ControlledScreen, Destroyable {
 	// PUBLIC CONSTANTS THAT WILL NEED TO BE UPDATED WHEN SERVER FIELDS CHANGE.
-	public final String SERVER_ADDRESS = "localhost";
-	// public final String SERVER_ADDRESS = "10.25.68.24";
+	//public final String SERVER_ADDRESS = "localhost";
+	public final String SERVER_ADDRESS = "10.25.68.24";
 
 	// Table components.
 	private ArrayList<GameInfo> games;

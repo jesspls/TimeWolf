@@ -25,8 +25,8 @@ import GameServer.Users.User;
 public class LoginScreenController implements ControlledScreen
 {
    // PUBLIC CONSTANTS THAT WILL NEED TO BE UPDATED WHEN SERVER FIELDS CHANGE.
-   public final String SERVER_ADDRESS = "localhost";
-   //public final String SERVER_ADDRESS = "10.25.68.24";
+   //public final String SERVER_ADDRESS = "localhost";
+   public final String SERVER_ADDRESS = "10.25.68.24";
    
    // Functional components.
    @FXML

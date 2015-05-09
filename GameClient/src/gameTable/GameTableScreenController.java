@@ -4,10 +4,14 @@
 
 package gameTable;
 
+import java.net.InetAddress;
 import java.net.MalformedURLException;
+import java.net.UnknownHostException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 import java.sql.SQLException;
 import java.util.Random;
 
@@ -42,8 +46,8 @@ public class GameTableScreenController implements ControlledScreen,
       Destroyable, Client
 {
    // PUBLIC CONSTANTS THAT WILL NEED TO BE UPDATED WHEN SERVER FIELDS CHANGE.
-   public final String SERVER_ADDRESS = "localhost";
-   //public final String SERVER_ADDRESS = "10.25.68.24";
+   //public final String SERVER_ADDRESS = "localhost";
+   public final String SERVER_ADDRESS = "10.25.68.24";
 
    @FXML
    private Button reportButton;
@@ -155,8 +159,10 @@ public class GameTableScreenController implements ControlledScreen,
    private int vp;
    private int counter;
 
-   private String remoteString;
-   private GameEngineRemote gameEngine;
+	private String remoteString;
+	private GameEngineRemote gameEngine;
+	private Registry r;
+	private String savePath;
 
    // So that we can access it from different methods (end the chat).
    Chat chat;
@@ -259,13 +265,13 @@ public class GameTableScreenController implements ControlledScreen,
       String playerUsername = MainModel.getModel().currentLoginData()
             .getUsername();
 
-      try {
-         IGameManagement gameManagement = (IGameManagement) Naming
-               .lookup("//" + SERVER_ADDRESS + "/game");
-         gameManagement.addUserToGame(gameID,
-               MainModel.getModel().currentLoginData()
-                     .getLogInConnection().getUser(playerUsername),
-               this.remoteString);
+		try {
+			IGameManagement gameManagement = MainModel.getModel().currentGameLobbyData().getGameManager();
+			
+			gameManagement.addUserToGame(gameID,
+					MainModel.getModel().currentLoginData()
+							.getLogInConnection().getUser(playerUsername),
+					this.remoteString);
 
          // DEBUG
          System.out.println("Joined game.");
@@ -340,23 +346,33 @@ public class GameTableScreenController implements ControlledScreen,
             e1.printStackTrace();
          }
          ((FacadeClient) thing).c = (Client) this;
-         String path = "//" + SERVER_ADDRESS + "/client" + id;
+         String path = "";
+		try {
+			path = "//" + InetAddress.getLocalHost().toString().substring(InetAddress.getLocalHost().toString().indexOf("/") + 1) + "/client" + id;
+
+			savePath = path;
+			System.out.println(path);
+		} catch (UnknownHostException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
          this.remoteString = path;
          try
          {
-            Naming.rebind(path, thing);
-            flag = false;
+        	r = LocateRegistry.createRegistry(1099);
+        	
          }
          catch (RemoteException e)
          {
             // TODO Auto-generated catch block
-            e.printStackTrace();
-         }
-         catch (MalformedURLException e)
-         {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-         }
+            System.out.println("Registry is already opened.");
+         }try {
+				Naming.rebind(path, thing);
+			} catch (MalformedURLException | RemoteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+            flag = false;
       }
    }
 
@@ -648,6 +664,7 @@ public class GameTableScreenController implements ControlledScreen,
       onTableCardClickedEvent(lurkDeckImage, deck);
       onTableCardClickedEvent(notSoImportantHistoricalFigureImage, deck);
 
+
       for (int i = 0; i < 5; i++) {
          onTableCardClickedEvent(gameTableImages[i], deck);
       }
@@ -701,6 +718,7 @@ public class GameTableScreenController implements ControlledScreen,
 
       image.setOnMouseClicked(event -> {
 
+
          if (image.getId() != null) {
 
             if (isTurn && isDiscard && counter > 0) {
@@ -708,6 +726,7 @@ public class GameTableScreenController implements ControlledScreen,
                   Card c = new Card(image.getId());
                   playLog.appendText("You discarded card " + c.getName()
                         + ". " + c.getDescription() + "\n");
+
 
                   lastDiscardImage.setImage(image.getImage());
                   image.setImage(null);
@@ -746,6 +765,7 @@ public class GameTableScreenController implements ControlledScreen,
 
                   image.setImage(null);
                   image.setId(null);
+
 
                   action = new Action(Action.TRASH, c);
                   this.gameEngine.trashCard(action);
@@ -1065,18 +1085,23 @@ public class GameTableScreenController implements ControlledScreen,
       parentController = (MainController) screenParent;
    }
 
-   /**
-    * This method will be called immediately before the screen in destroyed.
-    */
-   @Override
-   public void onDestroy() {
-      // TODO Auto-generated method stub
-      // This is where we will end the chat and send whatever information the
-      // server might need.      
-      
-      if (MainModel.getModel().currentGameLobbyData().getChatEnabled())
-         chat.end();
-   }
+	/**
+	 * This method will be called immediately before the screen in destroyed.
+	 */
+	@Override
+	public void onDestroy() {
+		// TODO Auto-generated method stub
+		// This is where we will end the chat and send whatever information the
+		// server might need.		gkajljafk'jewfl jkl gkjl;wef kj;fa kj;eaf 
+//		try {
+//			r.unbind(savePath);
+//		} catch (RemoteException | NotBoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		if (MainModel.getModel().currentGameLobbyData().getChatEnabled())
+			chat.end();
+	}
 
    /**
     * Set's the turn to a player other than this client's player
